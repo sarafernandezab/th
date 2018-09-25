@@ -1,0 +1,63 @@
+\chapter{Features related with time and frequency}
+
+\begin{enumerate}
+
+\item Mean Absolute Value (MAV)
+
+mav=sum(abs(f(1:end,:)))/win; %abs()
+
+\item Mean Absolute Value Slope (MAVS)
+
+mavs=[mav(:,2:end)- mav(:,1:end-1) zeros(size(mav,1),1)];
+
+\item Zero Crossing (ZC)
+
+zc=sum((f(2:end,:).*f(1:end-1,:))<=0)/(win-1);
+
+\item Power RMS (Prms) 
+
+$prms=sqrt(sum(f.^2))/win;$
+
+\item Waveform of Curve Length (WL) 
+
+wl=sum(abs(f(2:end,:)-f(1:end-1,:)));
+
+\item Variance (var)
+
+varf=var(f,[],1);
+
+\item Amplitude Distribution Kurtosis (AKUR)?????
+
+kurt=kurtosis(f); %%PROBLEMAS AQUI COM NaN
+
+\item \textbf{Amplitude distribution Skewness (ASKW)????}
+
+skw=skewness(f);  %%PROBLEMAS AQUI COM NaN
+
+\item \textbf{Crest factor (CRF)}
+
+relation between peak amplitude and rms of the signal.
+crf=(max(f(:,1:end))-min(f(:,1:end)))/2.*prms(1,1:end);
+
+\item \textbf{Teager energy (TE)}
+(Rajpurohit, 2014)
+for i=1:size(f,2)
+     Teager energy (Rajpurohit, 2014)
+    $teaE(1,i)=(sum(f(2:end-1,i).^2-f(1:end-2,i).*f(3:end,i)))/(length(f)-2);$
+    % Peaks (Rajpurohit, 2014)
+    %peaks(1,i)=numel(findpeaks(f(:,i),par.fsOut));
+
+% Noise (Rajpurohit, 2014)
+%three times the std of the amplitudes in the data window
+\item \textbf{Standard deviation of noise (?NAME?)}%9.
+estimação do std do ruído (é o scale parameter da pdf)
+calcular hilbert transf.
+$fi=hilbert(f);
+f_env=abs(f+fi*sqrt(-1));$
+sdt do ruído estimado com mediana: mediana=sP*sqrt(2*ln2)
+$spn=median(f_env)/sqrt(2*log(2));$
+
+
+\end{enumerate}
+
+\section{Frequency related features}

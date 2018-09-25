@@ -1,0 +1,107 @@
+\documentclass[10pt,a4paper]{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{textcomp}
+%\usepackage{kpfonts}
+\usepackage{algorithm} %for pseudocode 
+%\usepackage{apalike}
+%\let\bibhang\relax
+\usepackage{csquotes}
+\usepackage{apacite}%{natbib}
+%\usepackage[style=apa]{biblatex}
+%\usepackage[english]{babel}
+%\usepackage[style=apa]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+%\addbibresource{memoria_ref.bib}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\graphicspath{ {./fig_summaryReport/} }
+\linespread{1.25} %between 1.15 and 1.5 (isel)
+%% Figure 1. instead of Fig 1.
+%\makeatletter
+%\renewcommand{\fnum@figure}{Figure \thefigure}
+%\makeatother
+%\pagenumbering{gobble} % dont start page numbering until I say so
+%\usepackage{multicol} % for bibliography
+
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{2.5cm}{*}
+\checkandfixthelayout
+%% https://tex.stackexchange.com/questions/378119/how-to-set-margins-in-memoir-class
+%\renewcommand*\thesection{\arabic{section}}
+
+\setsecheadstyle{\LARGE\bfseries} %with 11pt \Large 14pt
+
+\setsubsecheadstyle{\Large\bfseries}%\sffamily}
+\setsecnumdepth{subsection}
+\setsubsubsecheadstyle{\large}
+\setsecnumdepth{subsubsection}
+%FALTA ADD TAB IN SUBSECT
+%\setparaheadstyle{\large\bfseries}
+%\setsubparaheadstyle{\large\bfseries}
+ \settocdepth{subsubsection}
+
+%Align chapter to RIGHT! https://tex.stackexchange.com/questions/69656/right-align-chapter-number-to-the-chapter-name-when-using-memoir-with-veelo-styl?rq=1
+%also tabs missing in subsection
+
+
+\title{Development of an unsupervised analysis pipeline for human microelectrode recordings for identification of Subthalamic Nucleus in Parkinson's Disease}
+\date{}
+%\author{Sara F. Abalde, Marcelo Medn}
+\openright
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\textbf{Background: }Deep Brain Stimulation (DBS) is a common treatment for advanced Parkinson's Disease (PD). Intra-operative microelectrode recordings (MER) along preplanned trajectories are often used for accurate identification of Subthalamic Nucleus (STN), a common target for DBS in PD. However, this identification is performed manually, and can be difficult in regions of transition. Misidentification may lead to suboptimal location of the DBS lead and inadequate clinical outcomes.
+
+\textbf{Methods: }We develop a tool for unsupervised analysis and spike-sorting of human MER signals.  Applying it, we train and tested a hybrid unsupervised/supervised machine learning approach that uses extracted MER time, frequency and noise properties for high-accuracy identification of STN. Lastly, we compared neurophysiological characteristics of different STN segments.
+
+\textbf{Results: }We obtained a classification accuracy of 0.91+-0.09 (30 trajectories, 5 patients) for individual STN-DBS surgery MER using an approach of ‘leave one out’ and human expert labels.
+
+Results of our unsupervised spike sorting were compared to a supervised approach (WaveClus3), with a subset of 25 signals. The unsupervised approach allowed us to sort a total of 556 STN neurons in 5 subjects. Dividing the STN in a dorsal (probably motor dSTN) and a ventral (probably non-motor vSTN) portion we’ve found a higher burstiness (1.39\textpm 0.07 vs 1.15\textpm 0.05 bursts/second, p=0.008) and interspike interval variability (1.15\textpm 0.03 vs. 1.04\textpm 0.03 p=0.005) of dSTN neurons. Ongoing work will refine these results using anatomical gold standard (through lead trajectory reconstruction, fused with an STN functional subdivision atlas).
+
+\textbf{Conclusions:} We’ve developed a tool for human MER analysis, that provided good preliminary results in STN classification. In line with the literature, we were able to find activity differences in functionally segregated STN segments. This tool is fast and generalizable for other brain regions. Ongoing anatomical work can further validate its’ usefulness in optimizing electrode placement and research purposes.
+%   Abstract needed¿
+\end{abstract}
+
+\clearpage
+\tableofcontents*
+%https://www.quora.com/What-is-the-best-LaTeX-template-for-writing-a-book-or-thesis
+
+
+\input{Chapters/Introduction} % Introduction
+
+\input{Chapters/Methods.tex} % Introduction
+
+\input{Chapters/Results.tex} % Introduction
+
+
+\chapter{Discussion}
+
+
+\chapter{Conclusion}
+
+\appendices
+
+\input{Appendices/A_features.tex} % Appendix with features definition
+
+
+
+\newpage
+
+%\printbibliography
+\bibliographystyle{apacite}
+\bibliography{memoria_ref}
+%\bibliographystyle{apacite}
+%/Users/-sara/Documents/BibTex/draft_references.bib}
+
+\end{document}

@@ -1,0 +1,116 @@
+
+\chapter{Results}
+In the present chapter, results are explained by parts ...=IIKKf
+maybe recording duration in table 2 is better here 
+
+\begin{table}[htb!]
+\centering
+\caption{Characteristics of subjects, recording duration and number of MER depths.}
+\label{tab:subjects}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}cccccccc@{}}
+\hline
+ &  & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Age\\ at surgery\\ (years)\end{tabular}} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Disease \\ duration \\ at surgery \\ (years)\end{tabular}} & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Years on\\  PD \\ medication\\ ?\end{tabular}} & \multicolumn{3}{c}{Intraoperative MER characteristics} \\ \cmidrule(l){6-8} 
+\multirow{2}{*}{Patient} & \multirow{2}{*}{Sex} &  &  &  & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Duration\\ (seconds)\end{tabular}} & \multicolumn{2}{c}{Depths along trajectory to target} \\ \cmidrule(l){7-8} 
+ &  &  &  &  &  & Right Hemisphere & Left Hemisphere \\ \midrule
+ \hline
+1 &  &  &  &  & 30 & 21 & 21 \\
+2 &  &  &  &  & 10 & 25 & 24 \\
+3 &  &  &  &  & 10 & 27 & 25 \\
+4 &  &  &  &  & 30 & 22 & 23 \\
+5 &  &  &  &  & 10 & 24 & 23 \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section{MER labelling}
+
+Identification of MER localizations was performed based on visual inspection of the randomized dataset by an expert. 
+Altough first option for MER labelling was to use the intraoperative annotations based on visual inspection during recording phase of DBS surgery, as in previous studies, this classification may be biased by the knowdledge of geometric locations.
+
+STN was identified in 285 recordings in our dataset of 685 MER signals. As illustrated in table~\ref{tab:labelResult}, certainty of MER classification as STN varies between patients: 38 recordings were labelled with the maximum certainty levels in patient 4, whereas in patient 3 any MER was identified as STN.
+
+DISC: This may be due to the electrode is actually not recording along the STN or to a missclassification in the visual inspection labelling.
+Anatomically-based approach will help in refining our results with a gold-standard methodology and compare both classifications. 
+
+\begin{table}[]
+\begin{tabular}{lcccccccc}
+\hline
+\multirow{3}{*}{} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Number \\ of MER\end{tabular}} & not-STN classified & \multicolumn{6}{c}{STN classified} \\ \cline{3-9} 
+ &  &  &  & \multicolumn{5}{c}{Certainty} \\ \cline{5-9} 
+ &  & Total & Total & \textless{}25\% & 25-50\% & 50-75\% & 75-95\% & \textgreater{}95\% \\ \hline
+All patients & 702 & 417 & 285 & 70 & 60 & 36 & 66 & 53 \\ \hline
+Patient 1 (AC) & 126 & 58 & 68 & 10 & 14 & 16 & 19 & 9 \\
+Patient 2 (JAMN) & 144 & 119 & 25 & 9 & 4 & 5 & 5 & 2 \\
+Patient 3 (LMST) & 156 & 113 & 43 & 14 & 25 & 3 & 1 & 0 \\
+Patient 4 (RN) & 135 & 39 & 96 & 14 & 9 & 6 & 29 & 38 \\
+Patient 5 (TM) & 141 & 88 & 53 & 23 & 8 & 6 & 12 & 4 \\ \hline
+\end{tabular}
+\end{table}
+
+We compute the following results considering STN-MER when their certainty level of classification are bigger than 
+\subsection{Expert based classification}
+
+\section{Features related with time and frequency}
+
+
+\subsection{Developed tool for feature extraction}
+
+We developed a Matlab code for feature extraction with previous loading and preprocessing of MER. 
+
+Since our approach computes features from each signal based on small segments of the signal, we expected artifacts not to influence very significantly in our results. Therefore, our first analysis of extracted features for distinguishing STN and non-STN recordings using this tool was performed calculating the median, mean and standard deviation of all frame values from  10 second segment filtered signal. Following results present 
+
+
+compare statistics with both features in order to compare them. 
+
+
+
+
+comparison performance with or without artefacts
+-> small effect on final results due to ; etraccion de artefactos si seria mas relevante 
+
+
+\subsection{Time domain features}
+
+\subsection{Frequency domain features}
+
+\section{Developed tool for neural MER analysis}
+
+\subsection{Supervised spike sorting}
+wave clus- sin embargo surgia el problema tras la inspeccion visual de que tanto en spike detection como en spike sorting a veces es necesaria supervision! en el propio articulo nos recomiendan laa supervision de los resultados calculados automaticamente y ajuste de la temperatura.
+
+esto se nos sale de nuestros objetivos ya que queremos desarrollar una herram y ademas contamos con una cantidad muy grande de datos, supervisar todos los culsters seria demasiado demorado.
+
+Sin embargo utilizamos Wave clus para comparar nuestro algoritmo adaptado y de alguna forma medir la accuracy de los cluster identificados, mostrado en seccion ,,
+
+\subsection{Unsupervised developed spike sorting}
+\textbf{Spike detection}
+hablar de que este algoritmo nos permitio realizar una deteccion de spikes en señales en las cuales la identificaion era complicada 
+\textbf{Spike sorting}
+
+\subsection{Spike features extraction}
+\textbf{ISI dependent features}
+\textbf{Bursting related features}
+\textbf{Oscillation features}
+
+\subsection{Comparison of supervised vs. unsupervised spike sorting}
+
+\section{Classification for STN identification}
+
+For identification of STN we based only in tf featu since it is a fast approach which could be implemented on real time ...
+\subsection{SVMclassifier}
+\subsection{knn}
+.....
+\section{Features for STN subdivision identification}
+
+\section{Refinement of MER labelling trough images}
+
+expert based  This classification approach provides apermite tener nuestro dataset clasificado en relacion al area de interest y gracia a la aleatoriedad, el expert no esta biased por sus propias respuestas. Sin embargo, es un proceso demorado y podria estar sujeto a bastante subjetividad.
+
+\subsection{Comparison expert vs. anatomically based classification}
+Procurar un doente con erros na classification e mostrar la importancia de clasificar basandonos en la realidad
+
+diagrama de 4 barras: stn(real) notSTN(real) stn anatomico que o marcelo disse que nao era subbtalamico(FP?) and FN
+
+\subsection{Spike characteristics based on anaomically based...}
+
